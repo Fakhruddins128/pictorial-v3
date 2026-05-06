@@ -11,11 +11,9 @@ import {
   Alert,
   Badge,
   Form,
-  InputGroup,
   Dropdown,
   Table,
 } from "react-bootstrap";
-import { searchItems } from "../api/items";
 import { getAuthHeader } from "../utils/auth";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -165,7 +163,8 @@ const GalleryPage = () => {
       (statusFilter === "active" && item.active) ||
       (statusFilter === "inactive" && !item.active);
     const matchesSubGroup =
-      subGroupFilter === "all" || item.FKSubGroupID == subGroupFilter;
+      subGroupFilter === "all" ||
+      String(item.FKSubGroupID) === String(subGroupFilter);
     const matchesPrice =
       item.saleprice >= priceRange[0] && item.saleprice <= priceRange[1];
     return matchesSearch && matchesStatus && matchesSubGroup && matchesPrice;

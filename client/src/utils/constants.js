@@ -1,1 +1,8 @@
-export const API_BASE_URL = "http://192.168.0.153:5000/api";
+const envApiBaseUrl = process.env.REACT_APP_API_BASE_URL?.trim();
+const fallbackApiBaseUrl =
+  process.env.NODE_ENV === "development" ? "http://localhost:5000/api" : "/api";
+
+export const API_BASE_URL = (envApiBaseUrl || fallbackApiBaseUrl).replace(
+  /\/$/,
+  ""
+);

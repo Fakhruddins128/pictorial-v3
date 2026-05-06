@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ItemsPage from "./pages/ItemsPage";
 import GalleryPage from "./pages/GalleryPage";
@@ -23,7 +22,7 @@ function App() {
               </AuthRoute>
             }
           />
-          // Add to your existing routes in App.js
+          {/* Gallery route */}
           <Route
             path="/gallery"
             element={
